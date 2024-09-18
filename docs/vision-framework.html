@@ -11,11 +11,11 @@
 <link rel="modulepreload" href="./_observablehq/client.a3ddc8f1.js">
 <link rel="modulepreload" href="./_observablehq/runtime.d2399b9f.js">
 <link rel="modulepreload" href="./_observablehq/stdlib.c0fd7a63.js">
-<link rel="icon" href="https://www.5gindiaforum.in/images/5gif.png" type="image/png" sizes="32x32"> <link rel="stylesheet" href="./_file/mystyle.3e36f927.css"> 
-  <script>
-  window.title=Vision of Satellite IMT-2020
-  </script>
-  
+
+  <link rel="stylesheet" href="./_file/css/mystyle.36bc1345.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="icon" href="./_file/observable.1af93621.png" type="image/png" sizes="32x32">
+
 <script type="module">
 
 import "./_observablehq/client.a3ddc8f1.js";
@@ -40,6 +40,10 @@ import "./_observablehq/client.a3ddc8f1.js";
     <ol>
     <li class="observablehq-link"><a href="./report/peakrate">Peak Rate</a></li>
     <li class="observablehq-link"><a href="./report/latency">Latency</a></li>
+    <li class="observablehq-link"><a href="./report/mobility">Mobility</a></li>
+    <li class="observablehq-link"><a href="./report/embb">eMBB</a></li>
+    <li class="observablehq-link"><a href="./report/mmtc">mMTC</a></li>
+    <li class="observablehq-link"><a href="./report/urllc">URLLC</a></li>
     </ol>
   </details>
   <section>
@@ -63,22 +67,57 @@ import "./_observablehq/client.a3ddc8f1.js";
 </aside>
 <div id="observablehq-center">
 <header id="observablehq-header">
-      <div class="obsbar">      <a class="logo" href="./"> <img class="ui tiny image" src="./_file/images/5gif.8280ea68.png" width="40rem" alt="5GIF logo"></a>     <a href="https://5gindiaforum.in/" target="_self" rel="" style="display: flex; align-items: center;">    </a>    <div style="display: flex; flex-grow: 1; justify-content: space-between; align-items: baseline;">      <span class="hide-if-small" style="color:var(--theme-foreground-focus)">  Section : Vision of Satellite IMT-2020 </span>    <span style="display: flex; align-items: baseline; gap: 0.5rem; font-size: 14px;color:red">  
-      </span>    </div></div> 
+     <nav class="obsbar"> 
+
+    <div class="menuarea"> 
+    
+    <a class="logo" href="https://www.5gindiaforum.in" target="_blank" rel="noopener noreferrer"> <img src="./_file/images/5gif.8280ea68.png" width="45rem" alt="5GIF logo"></a>      
+     <a href="./vision-framework"> About Sat-IMT2020 </a><a href="./report/"> Evaluation Report </a><a href="./sample"> Experimental </a>          
+     <div style="display:flex-right">        
+     <a href="./">
+  <i class="fas fa-home"></i> <!-- Add this line for the home icon -->
+</a>
+
+     </div>
+      </div>            
+    </nav>    
+    <div style="width:100%;">
+      <span class="sectiontitle">  Section : Vision of Satellite IMT-2020 </span>
+    </div>
+    
+    
 </header>
 <main id="observablehq-main" class="observablehq">
 <!-- @ include: ./src/header.md -->
 <h2 id="introduction" tabindex="-1"><a class="observablehq-header-anchor" href="#introduction">Introduction</a></h2>
-<aside class="editornote"> Add introduction to documents related to satellite vision etc., </aside>
+<aside class="editornote"> Add introduction to documents related to Report ITU-R M.​2514​ etc., </aside>
+<p>The vision of satellite IMT-2020 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> is to provide scalable and efficient 5G network solutions globally. The satellite component of IMT-2020 is expected to help accelerate the deployment of 5G in developing and developed countries</p>
+<p>Here are some of the key aspects of the vision for satellite IMT-2020:</p>
+<p><strong>Scalability</strong>: Satellite systems can provide high capacity and instantaneous connection to any place within their coverage area.</p>
+<p><strong>Resilience</strong>: Satellite systems are less vulnerable to natural disasters and physical attacks than terrestrial systems.
+<strong>Deployment</strong>: Satellite terminals can be deployed quickly.</p>
+<p><strong>Integration</strong>: Satellite systems can be integrated with terrestrial mobile networks.</p>
+<p><strong>Use cases</strong>: IMT-2020 is expected to enable new use cases, including enhanced mobile broadband, ultra-reliable low latency communications, and massive machine-type communications.
+Flexibility: Future IMT systems should be designed to be highly modular so that they can adapt to new use cases with varying requirements.
+Security: Future IMT systems should provide robust and secure solutions to counter threats to security and privacy.</p>
+<p><img src="./_file/images/satimt2020.65c5a5ab.png" alt="alt text"></p>
 <h2 id="usage-scenarios" tabindex="-1"><a class="observablehq-header-anchor" href="#usage-scenarios">Usage Scenarios</a></h2>
 <aside class="editornote"> Add introduction to documents related to satellite vision etc., </aside>
 <h2 id="test-environments" tabindex="-1"><a class="observablehq-header-anchor" href="#test-environments">Test Environments</a></h2>
 <aside class="editornote"> Add introduction to documents related to satellite vision etc., </aside>
 <h2 id="deadlines-dates" tabindex="-1"><a class="observablehq-header-anchor" href="#deadlines-dates">Deadlines/Dates</a></h2>
 <aside class="editornote"> Add introduction to documents related to satellite vision etc., </aside>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Vision, requirements and evaluation guidel​​ines for satellite radio interface(s) ​of IMT-2020
+<a href="https://www.itu.int/pub/R-REP-M.2514-2022" target="_blank" rel="noopener noreferrer">M.2514</a> <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./"><span>5GIF - IEG</span></a><a rel="next" href="./tpr-imt2020"><span>Technical Performance Requirements</span></a></nav>
-<div><hr>Build Date :  September 17, 2024   <br> Version : 0.11  </div>
+<div><hr>Build Date :  September 18, 2024   <br> Version : 0.11  </div>
 </footer>
 </div>
