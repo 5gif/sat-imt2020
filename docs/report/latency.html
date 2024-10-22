@@ -5,20 +5,157 @@
 <title>Latency | 5GIF - IEG</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="preload" as="style" href="../_observablehq/theme-near-midnight,alt,wide.da34dae3.css">
+<link rel="preload" as="style" href="../_import/css/mystyle.e2ef3fc2.css">
+<link rel="preload" as="style" href="../_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="preload" as="style" href="../_npm/katex@0.16.11/dist/katex.min.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
-<link rel="stylesheet" type="text/css" href="../_observablehq/theme-near-midnight,alt,wide.da34dae3.css">
-<link rel="modulepreload" href="../_observablehq/client.a3ddc8f1.js">
-<link rel="modulepreload" href="../_observablehq/runtime.d2399b9f.js">
-<link rel="modulepreload" href="../_observablehq/stdlib.c0fd7a63.js">
+<link rel="stylesheet" type="text/css" href="../_import/css/mystyle.e2ef3fc2.css">
+<link rel="stylesheet" type="text/css" href="../_observablehq/stdlib/inputs.ea9fd553.css">
+<link rel="stylesheet" type="text/css" href="../_npm/katex@0.16.11/dist/katex.min.css">
+<link rel="modulepreload" href="../_observablehq/client.552b1a4e.js">
+<link rel="modulepreload" href="../_observablehq/runtime.5b25203c.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.8648e8b4.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/inputs.a57d95be.js">
+<link rel="modulepreload" href="../_observablehq/stdlib/tex.c8bffae1.js">
+<link rel="modulepreload" href="../_npm/htl@0.3.1/063eb405.js">
+<link rel="modulepreload" href="../_npm/isoformat@0.2.1/c68fbd73.js">
+<link rel="modulepreload" href="../_npm/katex@0.16.11/c006fecc.js">
 
-  <link rel="stylesheet" href="../_file/css/mystyle.36bc1345.css">
+  <link rel="stylesheet" href="../_file/css/mystyle.db1143c2.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link rel="icon" href="../_file/observable.1af93621.png" type="image/png" sizes="32x32">
 
 <script type="module">
 
-import "../_observablehq/client.a3ddc8f1.js";
+import {define} from "../_observablehq/client.552b1a4e.js";
+
+define({id: "3a5cbb49", mode: "inline", inputs: ["Orbit_height","display"], body: async (Orbit_height,display) => {
+display(await(
+Orbit_height
+))
+}});
+
+define({id: "45eec1f2", mode: "inline", inputs: ["RTDs","display"], body: async (RTDs,display) => {
+display(await(
+RTDs
+))
+}});
+
+define({id: "6cf26e41", inputs: ["view","Inputs"], outputs: ["Orbit_height"], body: (view,Inputs) => {
+const Orbit_height= view(Inputs.range([500, 1200], {step: 100, label: "Orbit height", value: 500}));
+return {Orbit_height};
+}});
+
+define({id: "4a8fda08", inputs: ["Orbit_height"], outputs: ["c","RTD","RTDs","Tprop"], body: (Orbit_height) => {
+const c= 3e8
+const RTD= 4*(Orbit_height*1e3/c)*1e3
+const RTDs= RTD.toFixed(3)
+const Tprop= RTD/2
+return {c,RTD,RTDs,Tprop};
+}});
+
+define({id: "45eec1f2-1", mode: "inline", inputs: ["RTDs","display"], body: async (RTDs,display) => {
+display(await(
+RTDs
+))
+}});
+
+define({id: "3a5cbb49-1", mode: "inline", inputs: ["Orbit_height","display"], body: async (Orbit_height,display) => {
+display(await(
+Orbit_height
+))
+}});
+
+define({id: "1b44b3ef", mode: "inline", inputs: ["Tprop","display"], body: async (Tprop,display) => {
+display(await(
+Tprop.toFixed(3)
+))
+}});
+
+define({id: "2055518c", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`t_{UE,rx}=T_{proc,1}/2`
+))
+}});
+
+define({id: "cdba6bd9", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`t_{BS,tx} + t_{FA,DL} + t_{DL\_duration} + t_{prop} + t_{UE,rx}`
+))
+}});
+
+define({id: "49a1adfb", mode: "inline", inputs: ["Tprop","display"], body: async (Tprop,display) => {
+display(await(
+(Tprop + 2.7136).toFixed(3)
+))
+}});
+
+define({id: "1fa80ff8", mode: "inline", inputs: ["Orbit_height1","display"], body: async (Orbit_height1,display) => {
+display(await(
+Orbit_height1
+))
+}});
+
+define({id: "81f921a5", mode: "inline", inputs: ["RTDs1","display"], body: async (RTDs1,display) => {
+display(await(
+RTDs1
+))
+}});
+
+define({id: "aed050c2", inputs: ["view","Inputs"], outputs: ["Orbit_height1"], body: (view,Inputs) => {
+const Orbit_height1= view(Inputs.range([500, 1200], {step: 100, label: "Orbit height", value: 500}));
+return {Orbit_height1};
+}});
+
+define({id: "2f0b3f81", inputs: ["Orbit_height1","c"], outputs: ["c1","RTD1","RTDs1","Tprop1"], body: (Orbit_height1,c) => {
+const c1= 3e8
+const RTD1= 4*(Orbit_height1*1e3/c)*1e3
+const RTDs1= RTD1.toFixed(3)
+const Tprop1= RTD1/2
+return {c1,RTD1,RTDs1,Tprop1};
+}});
+
+define({id: "2055518c-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`t_{UE,rx}=T_{proc,1}/2`
+))
+}});
+
+define({id: "81f921a5-1", mode: "inline", inputs: ["RTDs1","display"], body: async (RTDs1,display) => {
+display(await(
+RTDs1
+))
+}});
+
+define({id: "1fa80ff8-1", mode: "inline", inputs: ["Orbit_height1","display"], body: async (Orbit_height1,display) => {
+display(await(
+Orbit_height1
+))
+}});
+
+define({id: "66341553", mode: "inline", inputs: ["Tprop1","display"], body: async (Tprop1,display) => {
+display(await(
+Tprop1.toFixed(3)
+))
+}});
+
+define({id: "66341553-1", mode: "inline", inputs: ["Tprop1","display"], body: async (Tprop1,display) => {
+display(await(
+Tprop1.toFixed(3)
+))
+}});
+
+define({id: "cdba6bd9-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
+display(await(
+tex`t_{BS,tx} + t_{FA,DL} + t_{DL\_duration} + t_{prop} + t_{UE,rx}`
+))
+}});
+
+define({id: "fb4b347b", mode: "inline", inputs: ["Tprop1","display"], body: async (Tprop1,display) => {
+display(await(
+(Tprop1*2 + 14.3568).toFixed(4)
+))
+}});
 
 </script>
 <input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
@@ -56,6 +193,14 @@ import "../_observablehq/client.a3ddc8f1.js";
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
 <nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#requirement">Requirement</a></li>
+<li class="observablehq-secondary-link"><a href="#satellite-parameters">Satellite parameters</a></li>
+<li class="observablehq-secondary-link"><a href="#user-plane-latency">User Plane Latency</a></li>
+<li class="observablehq-secondary-link"><a href="#control-plane-latency">Control Plane Latency</a></li>
+<li class="observablehq-secondary-link"><a href="#satellite-parameters-1">Satellite parameters</a></li>
+</ol>
 </nav>
 </aside>
 <div id="observablehq-center">
@@ -81,16 +226,235 @@ import "../_observablehq/client.a3ddc8f1.js";
     
 </header>
 <main id="observablehq-main" class="observablehq">
-<!-- @ include: ./src/header.md -->
-<!-- <style>
-    :root {
-     --theme-foreground-focus: green;
-  }
-</style> -->
-<h1 id="latency" tabindex="-1"><a class="observablehq-header-anchor" href="#latency">Latency</a></h1>
+<style>
+  table{
+    background:var(--theme-background-alt);
+    border:2px solid var(--theme-background-alt);
+    width:100%;
+  }  
+</style>
+<h2 id="requirement" tabindex="-1"><a class="observablehq-header-anchor" href="#requirement">Requirement</a></h2>
+<table>
+<thead>
+<tr>
+<th>Min Requirement</th>
+<th>Value (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>User Plane (UL)</td>
+<td><code>10ms</code></td>
+</tr>
+<tr>
+<td>Control Plane (UL)</td>
+<td><code>20ms</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="satellite-parameters" tabindex="-1"><a class="observablehq-header-anchor" href="#satellite-parameters">Satellite parameters</a></h2>
+<p>The satellite is assumed at an orbit height of <strong><observablehq-loading></observablehq-loading><!--:3a5cbb49:--></strong> km and this corresponds to RTD= <observablehq-loading></observablehq-loading><!--:45eec1f2:--> ms</p>
+<div class="observablehq observablehq--block"><!--:6cf26e41:--></div>
+<div class="observablehq observablehq--block"><!--:4a8fda08:--></div>
+<h2 id="user-plane-latency" tabindex="-1"><a class="observablehq-header-anchor" href="#user-plane-latency">User Plane Latency</a></h2>
+<p>User plane latency is the contribution of the radio network to the time from when the source sends a packet to when the destination receives it (in ms). It is defined as the one-way time it takes to successfully deliver an application layer packet/message from the radio protocol layer 2/3 SDU ingress point to the radio protocol layer 2/3 SDU egress point of the radio interface in either uplink or downlink in the network for a given service in unloaded conditions, assuming the mobile station is in the active state.</p>
+<p>The evaluation of NR satellite access user plane latency is based on the procedure illustrated in Figure</p>
+<p><img src="../_file/report/image-1.3d7d9240.png" alt="User plane procedure for evaluation" class="ui image"></p>
+<p>For the NR satellite access user plane latency evaluation, the following assumptions are considered:</p>
+<ul>
+<li>
+<p>It is assumed that the packet arrives at any time of any OFDM symbol. For the maximum symbol alignment time, one symbol length is added at the beginning of the procedure.</p>
+</li>
+<li>
+<p>The transmission of PDCCH, PDSCH, PUCCH, PUSCH cannot be across the slot. Otherwise, the transmission will wait for the next slot.</p>
+</li>
+<li>
+<p>The PDSCH/PUSCH allocation assumes slot-based scheduling.</p>
+</li>
+<li>
+<p>Resource mapping type A is considered.</p>
+</li>
+<li>
+<p>UE processing capability 1 is considered.</p>
+</li>
+<li>
+<p>The subcarrier spacing is 15 kHz.</p>
+</li>
+<li>
+<p>It is assumed that PDCCH monitoring occasion occurs at every OFDM symbol in the evaluation.</p>
+</li>
+<li>
+<p>It is assumed that HARQ feedback is disabled, i.e., packet retransmissions are not considered.</p>
+</li>
+<li>
+<p>It is assumed that an initial error probability is 0.</p>
+</li>
+<li>
+<p>It is assumed that satellite on-board delay can be considered negligible.</p>
+</li>
+<li>
+<p>Grant-free allocation is assumed in uplink.</p>
+</li>
+</ul>
+<p>The DL and UL user plane latency for NR satellite access can be viewed in the following table.</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Duration (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Initial symbol alignment</td>
+<td>0.0714</td>
+</tr>
+<tr>
+<td>gNB processing delay: tBS,tx=Tproc,2/2, where Tproc,2 is defined in TS 38.214, Section 6.4, with N2=10 , d2,1=d2=d2,2=Text=Tswitch=0 and κ=64.</td>
+<td>0.3568</td>
+</tr>
+<tr>
+<td>Downlink frame alignment, assuming 1 ms slot duration: tFA,DL</td>
+<td>1</td>
+</tr>
+<tr>
+<td>TTI for downlink data packet transmission: tDL_duration</td>
+<td>1</td>
+</tr>
+<tr>
+<td>One way propagation delay: <code>tprop=RTD/2</code>, where <code>RTD</code>= <strong><observablehq-loading></observablehq-loading><!--:45eec1f2-1:--></strong> ms as per minimum round-trip delay for LEO satellite at <strong><observablehq-loading></observablehq-loading><!--:3a5cbb49-1:--></strong> km altitude, transparent payload, defined in TR 38.821, Table 7.1.1</td>
+<td><strong><observablehq-loading></observablehq-loading><!--:1b44b3ef:--></strong></td>
+</tr>
+<tr>
+<td>UE processing delay: <observablehq-loading></observablehq-loading><!--:2055518c:-->, where Tproc,1 is defined in TS 38.214, Section 5.3, with N1=8 , d1,1=d2=Text=0 and κ=64.</td>
+<td>0.2854</td>
+</tr>
+<tr>
+<td>Total one-way user plane latency: T1 = <observablehq-loading></observablehq-loading><!--:cdba6bd9:--></td>
+<td><observablehq-loading></observablehq-loading><!--:49a1adfb:--></td>
+</tr>
+</tbody>
+</table>
+<h2 id="control-plane-latency" tabindex="-1"><a class="observablehq-header-anchor" href="#control-plane-latency">Control Plane Latency</a></h2>
+<p>According to Report ITU-R M.2514, control plane latency refers to the transition time from a most “battery efficient” state (e.g. Idle state) to the start of continuous data transfer (e.g. Active state).
+In the context of 5G NR satellite access, the respective states are RRC_IDLE or RRC_INACTIVE and RRC_CONNECTED. The control plane latency is evaluated from RRC_INACTIVE to RRC_CONNECTED transition. The following additional assumptions are considered in the evaluation:</p>
+<ul>
+<li>Resource mapping type A is assumed.</li>
+<li>UE processing capability 1 is assumed.</li>
+<li>The subcarrier spacing is 15 kHz.</li>
+<li>2-step random access is used.</li>
+<li>Satellite on-board delay is considered negligible.</li>
+</ul>
+<p>The calculation of the control plane latency, for 15 kHz SCS in downlink and uplink directions is provided the following table, based on the above assumptions.</p>
+<h2 id="satellite-parameters-1" tabindex="-1"><a class="observablehq-header-anchor" href="#satellite-parameters-1">Satellite parameters</a></h2>
+<p>The satellite is assumed at an orbit height of <strong><observablehq-loading></observablehq-loading><!--:1fa80ff8:--></strong> km and this corresponds to RTD= <observablehq-loading></observablehq-loading><!--:81f921a5:--> ms</p>
+<div class="observablehq observablehq--block"><!--:aed050c2:--></div>
+<div class="observablehq observablehq--block"><!--:2f0b3f81:--></div>
+<p>The DL and UL user plane latency for NR satellite access can be viewed in the following table.</p>
+<table>
+<thead>
+<tr>
+<th>Description</th>
+<th>Duration (ms)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Delay due to RACH scheduling period. It is assumed that the transition procedure begins from the transmission of RACH preamble, thus RACH scheduling period can be ignored.</td>
+<td>0</td>
+</tr>
+<tr>
+<td>UE processing delay: <observablehq-loading></observablehq-loading><!--:2055518c-1:-->, where Tproc,1 is defined in TS 38.214, Section 5.3, with N2=10 , d1,1=d2=Text=0 and κ=64.</td>
+<td>0.3568</td>
+</tr>
+<tr>
+<td>Transmission of RACH preamble: ttx,preamble</td>
+<td>1</td>
+</tr>
+<tr>
+<td>PRACH-to-PUSCH offset: tPUSCH_offset Given that the RACH preamble transmission is 14 symbols and the minimum time between PRACH and PUSCH for MsgA is 2 OFDM symbols for μ=0, at least one slot offset should be considered between PRACH and PUSCH, as defined by msgA-PUSCH-TimeDomainOffset.</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Transmission of PUSCH payload: ttx,PUSCH</td>
+<td>1</td>
+</tr>
+<tr>
+<td>One way propagation delay: <code>tprop=RTD/2</code>, where <code>RTD</code>= <strong><observablehq-loading></observablehq-loading><!--:81f921a5-1:--></strong> ms as per minimum round-trip delay for LEO satellite at <strong><observablehq-loading></observablehq-loading><!--:1fa80ff8-1:--></strong> km altitude, transparent payload, defined in TR 38.821, Table 7.1.1</td>
+<td><strong><observablehq-loading></observablehq-loading><!--:66341553:--></strong></td>
+</tr>
+<tr>
+<td>MsgA detection and processing delay in gNB (preamble, L2 and RRC): tBS,rx</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Transmission of MsgB: ttx,MsgB</td>
+<td>1</td>
+</tr>
+<tr>
+<td>One way propagation delay, gNB 🡪 UE: <code>tprop=RTD/2</code></td>
+<td><strong><observablehq-loading></observablehq-loading><!--:66341553-1:--></strong></td>
+</tr>
+<tr>
+<td>UE processing delay of RRC Resume, including RA Response: tUE,rx</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Transmission of RRC Resume Complete and data</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Total control plane latency: T1 = <observablehq-loading></observablehq-loading><!--:cdba6bd9-1:--></td>
+<td><observablehq-loading></observablehq-loading><!--:fb4b347b:--></td>
+</tr>
+</tbody>
+</table>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./peakrate"><span>Peak Rate</span></a><a rel="next" href="./mobility"><span>Mobility</span></a></nav>
-<div><hr>Build Date :  September 18, 2024   <br> Version : 0.11  </div>
+<div>
+<div class="ui divider"></div>
+
+<div class="ui inverted vertical footer segment">
+<div class="ui center aligned container">
+
+  <div class="ui stackable inverted divided three columns grid">
+  <div class="column"> Follow us                <br>
+                <div class="ui list link inverted">
+                    <a target="_blank" href="https://twitter.com/5gindiaforum" class="item" rel="noopener noreferrer"> <i class="twitter blue icon"></i>5gindiaforum</a>
+                    <a target="_blank" href="https://www.linkedin.com/company/5gif" class="item" rel="noopener noreferrer"> <i class="linkedin blue icon"></i>5G
+                        India Forum</a>
+                    <a target="_blank" href="https://github.com/5gif" class="item" rel="noopener noreferrer"> <i class="github white  icon"></i>5gif</a>
+                </div>
+            </div>
+<div class="four wide column">
+                <h4 class="ui inverted  header">Contact</h4>
+                <span class="ui inverted " style="color: rgb(68, 65, 65);">
+                    Sector 2, 14, Bhai Vir Singh Marg, Sector 4, Gole Market, New Delhi, Delhi 110001
+                </span>
+            </div>
+                
+    <div class="column">
+      <h4 class="ui inverted header">Important Links</h4>
+      <div class="ui inverted link list">
+        <a href="#" class="item">ITU-R WP4B</a>
+        <a href="https://5gindiaforum.sharepoint.com/sites/5gif" class="item" target="_blank" rel="noopener noreferrer">Link Two</a>
+        <a href="https://5gindiaforum.sharepoint.com/sites/ieg-IMT2020-satellite/" class="item" target="_blank" rel="noopener noreferrer">SAT IMT2020 SharePoint (internal)</a>
+        <a href="#" class="item">Link Four</a>
+      </div>
+    </div>            
+  </div>
+  <div class="ui inverted section divider"></div>
+  <img src="../_file/images/5gif.8280ea68.png" class="ui centered mini image">   
+  <div class="ui horizontal inverted small divided link list">   
+  <span class="item" href="#">Copyright (c) 2024</span>
+    <a class="item" href="#">Contact Us</a>
+    <a class="item">Build on October 22, 2024 (0.11) </a>
+  </div>
+</div>
+</div>
+
+ 
+  </div>
 </footer>
 </div>
