@@ -29,6 +29,30 @@
 
 import {define} from "../_observablehq/client.552b1a4e.js";
 
+define({id: "49a1adfb", mode: "inline", inputs: ["Tprop","display"], body: async (Tprop,display) => {
+display(await(
+(Tprop + 2.7136).toFixed(3)
+))
+}});
+
+define({id: "e7a208fe", mode: "inline", inputs: ["Tprop","UPreq","display"], body: async (Tprop,UPreq,display) => {
+display(await(
+(Tprop + 2.7136).toFixed(3)<=UPreq?" ✅":" ❌"
+))
+}});
+
+define({id: "fb4b347b", mode: "inline", inputs: ["Tprop1","display"], body: async (Tprop1,display) => {
+display(await(
+(Tprop1*2 + 14.3568).toFixed(4)
+))
+}});
+
+define({id: "993bfd7c", mode: "inline", inputs: ["Tprop1","CPreq","display"], body: async (Tprop1,CPreq,display) => {
+display(await(
+(Tprop1*2 + 14.3568).toFixed(4) <=CPreq?" ✅":" ❌" 
+))
+}});
+
 define({id: "3a5cbb49", mode: "inline", inputs: ["Orbit_height","display"], body: async (Orbit_height,display) => {
 display(await(
 Orbit_height
@@ -41,9 +65,12 @@ RTDs
 ))
 }});
 
-define({id: "6cf26e41", inputs: ["view","Inputs"], outputs: ["Orbit_height"], body: (view,Inputs) => {
+define({id: "77b40aea", inputs: ["view","Inputs"], outputs: ["Orbit_height","UPreq","CPreq"], body: (view,Inputs) => {
 const Orbit_height= view(Inputs.range([500, 1200], {step: 100, label: "Orbit height", value: 500}));
-return {Orbit_height};
+const UPreq=10;
+const CPreq=40;
+
+return {Orbit_height,UPreq,CPreq};
 }});
 
 define({id: "4a8fda08", inputs: ["Orbit_height"], outputs: ["c","RTD","RTDs","Tprop"], body: (Orbit_height) => {
@@ -84,15 +111,21 @@ tex`t_{BS,tx} + t_{FA,DL} + t_{DL\_duration} + t_{prop} + t_{UE,rx}`
 ))
 }});
 
-define({id: "49a1adfb", mode: "inline", inputs: ["Tprop","display"], body: async (Tprop,display) => {
+define({id: "49a1adfb-1", mode: "inline", inputs: ["Tprop","display"], body: async (Tprop,display) => {
 display(await(
 (Tprop + 2.7136).toFixed(3)
 ))
 }});
 
-define({id: "1fa80ff8", mode: "inline", inputs: ["Orbit_height1","display"], body: async (Orbit_height1,display) => {
+define({id: "e7a208fe-1", mode: "inline", inputs: ["Tprop","UPreq","display"], body: async (Tprop,UPreq,display) => {
 display(await(
-Orbit_height1
+(Tprop + 2.7136).toFixed(3)<=UPreq?" ✅":" ❌"
+))
+}});
+
+define({id: "3a5cbb49-2", mode: "inline", inputs: ["Orbit_height","display"], body: async (Orbit_height,display) => {
+display(await(
+Orbit_height
 ))
 }});
 
@@ -102,17 +135,11 @@ RTDs1
 ))
 }});
 
-define({id: "aed050c2", inputs: ["view","Inputs"], outputs: ["Orbit_height1"], body: (view,Inputs) => {
-const Orbit_height1= view(Inputs.range([500, 1200], {step: 100, label: "Orbit height", value: 500}));
-return {Orbit_height1};
-}});
-
-define({id: "2f0b3f81", inputs: ["Orbit_height1","c"], outputs: ["c1","RTD1","RTDs1","Tprop1"], body: (Orbit_height1,c) => {
-const c1= 3e8
-const RTD1= 4*(Orbit_height1*1e3/c)*1e3
+define({id: "cdd21f3c", inputs: ["RTD"], outputs: ["RTD1","RTDs1","Tprop1"], body: (RTD) => {
+const RTD1= RTD
 const RTDs1= RTD1.toFixed(3)
 const Tprop1= RTD1/2
-return {c1,RTD1,RTDs1,Tprop1};
+return {RTD1,RTDs1,Tprop1};
 }});
 
 define({id: "2055518c-1", mode: "inline", inputs: ["tex","display"], body: async (tex,display) => {
@@ -127,9 +154,9 @@ RTDs1
 ))
 }});
 
-define({id: "1fa80ff8-1", mode: "inline", inputs: ["Orbit_height1","display"], body: async (Orbit_height1,display) => {
+define({id: "3a5cbb49-3", mode: "inline", inputs: ["Orbit_height","display"], body: async (Orbit_height,display) => {
 display(await(
-Orbit_height1
+Orbit_height
 ))
 }});
 
@@ -151,9 +178,15 @@ tex`t_{BS,tx} + t_{FA,DL} + t_{DL\_duration} + t_{prop} + t_{UE,rx}`
 ))
 }});
 
-define({id: "fb4b347b", mode: "inline", inputs: ["Tprop1","display"], body: async (Tprop1,display) => {
+define({id: "fb4b347b-1", mode: "inline", inputs: ["Tprop1","display"], body: async (Tprop1,display) => {
 display(await(
 (Tprop1*2 + 14.3568).toFixed(4)
+))
+}});
+
+define({id: "993bfd7c-1", mode: "inline", inputs: ["Tprop1","CPreq","display"], body: async (Tprop1,CPreq,display) => {
+display(await(
+(Tprop1*2 + 14.3568).toFixed(4) <=CPreq?" ✅":" ❌" 
 ))
 }});
 
@@ -232,6 +265,14 @@ display(await(
     border:2px solid var(--theme-background-alt);
     width:100%;
   }  
+  td:last-child{
+    padding-right:5px
+  }
+  td:first-child{
+    padding-left:5px
+  }
+
+   
 </style>
 <h2 id="requirement" tabindex="-1"><a class="observablehq-header-anchor" href="#requirement">Requirement</a></h2>
 <table>
@@ -239,22 +280,25 @@ display(await(
 <tr>
 <th>Min Requirement</th>
 <th>Value (ms)</th>
+<th style="text-align:right">Eval Result (ms)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>User Plane (UL)</td>
 <td><code>10ms</code></td>
+<td style="text-align:right"><observablehq-loading></observablehq-loading><!--:49a1adfb:-->  <observablehq-loading></observablehq-loading><!--:e7a208fe:--></td>
 </tr>
 <tr>
 <td>Control Plane (UL)</td>
-<td><code>20ms</code></td>
+<td><code>40ms</code></td>
+<td style="text-align:right"><observablehq-loading></observablehq-loading><!--:fb4b347b:-->  <observablehq-loading></observablehq-loading><!--:993bfd7c:--></td>
 </tr>
 </tbody>
 </table>
 <h2 id="satellite-parameters" tabindex="-1"><a class="observablehq-header-anchor" href="#satellite-parameters">Satellite parameters</a></h2>
 <p>The satellite is assumed at an orbit height of <strong><observablehq-loading></observablehq-loading><!--:3a5cbb49:--></strong> km and this corresponds to RTD= <observablehq-loading></observablehq-loading><!--:45eec1f2:--> ms</p>
-<div class="observablehq observablehq--block"><!--:6cf26e41:--></div>
+<div class="observablehq observablehq--block"><!--:77b40aea:--></div>
 <div class="observablehq observablehq--block"><!--:4a8fda08:--></div>
 <h2 id="user-plane-latency" tabindex="-1"><a class="observablehq-header-anchor" href="#user-plane-latency">User Plane Latency</a></h2>
 <p>User plane latency is the contribution of the radio network to the time from when the source sends a packet to when the destination receives it (in ms). It is defined as the one-way time it takes to successfully deliver an application layer packet/message from the radio protocol layer 2/3 SDU ingress point to the radio protocol layer 2/3 SDU egress point of the radio interface in either uplink or downlink in the network for a given service in unloaded conditions, assuming the mobile station is in the active state.</p>
@@ -301,37 +345,37 @@ display(await(
 <thead>
 <tr>
 <th>Description</th>
-<th>Duration (ms)</th>
+<th style="text-align:right">Duration (ms)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Initial symbol alignment</td>
-<td>0.0714</td>
+<td style="text-align:right">0.0714</td>
 </tr>
 <tr>
 <td>gNB processing delay: tBS,tx=Tproc,2/2, where Tproc,2 is defined in TS 38.214, Section 6.4, with N2=10 , d2,1=d2=d2,2=Text=Tswitch=0 and κ=64.</td>
-<td>0.3568</td>
+<td style="text-align:right">0.3568</td>
 </tr>
 <tr>
 <td>Downlink frame alignment, assuming 1 ms slot duration: tFA,DL</td>
-<td>1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>TTI for downlink data packet transmission: tDL_duration</td>
-<td>1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>One way propagation delay: <code>tprop=RTD/2</code>, where <code>RTD</code>= <strong><observablehq-loading></observablehq-loading><!--:45eec1f2-1:--></strong> ms as per minimum round-trip delay for LEO satellite at <strong><observablehq-loading></observablehq-loading><!--:3a5cbb49-1:--></strong> km altitude, transparent payload, defined in TR 38.821, Table 7.1.1</td>
-<td><strong><observablehq-loading></observablehq-loading><!--:1b44b3ef:--></strong></td>
+<td style="text-align:right"><strong><observablehq-loading></observablehq-loading><!--:1b44b3ef:--></strong></td>
 </tr>
 <tr>
 <td>UE processing delay: <observablehq-loading></observablehq-loading><!--:2055518c:-->, where Tproc,1 is defined in TS 38.214, Section 5.3, with N1=8 , d1,1=d2=Text=0 and κ=64.</td>
-<td>0.2854</td>
+<td style="text-align:right">0.2854</td>
 </tr>
 <tr>
 <td>Total one-way user plane latency: T1 = <observablehq-loading></observablehq-loading><!--:cdba6bd9:--></td>
-<td><observablehq-loading></observablehq-loading><!--:49a1adfb:--></td>
+<td style="text-align:right"><observablehq-loading></observablehq-loading><!--:49a1adfb-1:-->  <observablehq-loading></observablehq-loading><!--:e7a208fe-1:--></td>
 </tr>
 </tbody>
 </table>
@@ -347,65 +391,64 @@ In the context of 5G NR satellite access, the respective states are RRC_IDLE or 
 </ul>
 <p>The calculation of the control plane latency, for 15 kHz SCS in downlink and uplink directions is provided the following table, based on the above assumptions.</p>
 <h2 id="satellite-parameters-1" tabindex="-1"><a class="observablehq-header-anchor" href="#satellite-parameters-1">Satellite parameters</a></h2>
-<p>The satellite is assumed at an orbit height of <strong><observablehq-loading></observablehq-loading><!--:1fa80ff8:--></strong> km and this corresponds to RTD= <observablehq-loading></observablehq-loading><!--:81f921a5:--> ms</p>
-<div class="observablehq observablehq--block"><!--:aed050c2:--></div>
-<div class="observablehq observablehq--block"><!--:2f0b3f81:--></div>
+<p>The satellite is assumed at an orbit height of <strong><observablehq-loading></observablehq-loading><!--:3a5cbb49-2:--></strong> km and this corresponds to RTD= <observablehq-loading></observablehq-loading><!--:81f921a5:--> ms</p>
+<div class="observablehq observablehq--block"><!--:cdd21f3c:--></div>
 <p>The DL and UL user plane latency for NR satellite access can be viewed in the following table.</p>
 <table>
 <thead>
 <tr>
 <th>Description</th>
-<th>Duration (ms)</th>
+<th style="text-align:right">Duration (ms)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Delay due to RACH scheduling period. It is assumed that the transition procedure begins from the transmission of RACH preamble, thus RACH scheduling period can be ignored.</td>
-<td>0</td>
+<td style="text-align:right">0</td>
 </tr>
 <tr>
 <td>UE processing delay: <observablehq-loading></observablehq-loading><!--:2055518c-1:-->, where Tproc,1 is defined in TS 38.214, Section 5.3, with N2=10 , d1,1=d2=Text=0 and κ=64.</td>
-<td>0.3568</td>
+<td style="text-align:right">0.3568</td>
 </tr>
 <tr>
 <td>Transmission of RACH preamble: ttx,preamble</td>
-<td>1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>PRACH-to-PUSCH offset: tPUSCH_offset Given that the RACH preamble transmission is 14 symbols and the minimum time between PRACH and PUSCH for MsgA is 2 OFDM symbols for μ=0, at least one slot offset should be considered between PRACH and PUSCH, as defined by msgA-PUSCH-TimeDomainOffset.</td>
-<td>1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>Transmission of PUSCH payload: ttx,PUSCH</td>
-<td>1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
-<td>One way propagation delay: <code>tprop=RTD/2</code>, where <code>RTD</code>= <strong><observablehq-loading></observablehq-loading><!--:81f921a5-1:--></strong> ms as per minimum round-trip delay for LEO satellite at <strong><observablehq-loading></observablehq-loading><!--:1fa80ff8-1:--></strong> km altitude, transparent payload, defined in TR 38.821, Table 7.1.1</td>
-<td><strong><observablehq-loading></observablehq-loading><!--:66341553:--></strong></td>
+<td>One way propagation delay: <code>tprop=RTD/2</code>, where <code>RTD</code>= <strong><observablehq-loading></observablehq-loading><!--:81f921a5-1:--></strong> ms as per minimum round-trip delay for LEO satellite at <strong><observablehq-loading></observablehq-loading><!--:3a5cbb49-3:--></strong> km altitude, transparent payload, defined in TR 38.821, Table 7.1.1</td>
+<td style="text-align:right"><strong><observablehq-loading></observablehq-loading><!--:66341553:--></strong></td>
 </tr>
 <tr>
 <td>MsgA detection and processing delay in gNB (preamble, L2 and RRC): tBS,rx</td>
-<td>3</td>
+<td style="text-align:right">3</td>
 </tr>
 <tr>
 <td>Transmission of MsgB: ttx,MsgB</td>
-<td>1</td>
+<td style="text-align:right">1</td>
 </tr>
 <tr>
 <td>One way propagation delay, gNB 🡪 UE: <code>tprop=RTD/2</code></td>
-<td><strong><observablehq-loading></observablehq-loading><!--:66341553-1:--></strong></td>
+<td style="text-align:right"><strong><observablehq-loading></observablehq-loading><!--:66341553-1:--></strong></td>
 </tr>
 <tr>
 <td>UE processing delay of RRC Resume, including RA Response: tUE,rx</td>
-<td>7</td>
+<td style="text-align:right">7</td>
 </tr>
 <tr>
 <td>Transmission of RRC Resume Complete and data</td>
-<td>0</td>
+<td style="text-align:right">0</td>
 </tr>
 <tr>
 <td>Total control plane latency: T1 = <observablehq-loading></observablehq-loading><!--:cdba6bd9-1:--></td>
-<td><observablehq-loading></observablehq-loading><!--:fb4b347b:--></td>
+<td style="text-align:right"><observablehq-loading></observablehq-loading><!--:fb4b347b-1:-->  <observablehq-loading></observablehq-loading><!--:993bfd7c-1:--></td>
 </tr>
 </tbody>
 </table>
