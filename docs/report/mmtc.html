@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="generator" content="Observable Framework v1.11.0">
-<title>Massive IoT | 5GIF - IEG</title>
+<title>Evaluation of mMTC-s technical performance | 5GIF - IEG</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="../_import/css/mystyle.e2ef3fc2.css">
@@ -43,7 +43,7 @@ import "../_observablehq/client.552b1a4e.js";
     <li class="observablehq-link"><a href="./mobility">Mobility</a></li>
     <li class="observablehq-link"><a href="./embb">eMBB</a></li>
     <li class="observablehq-link observablehq-link-active"><a href="./mmtc">mMTC</a></li>
-    <li class="observablehq-link"><a href="./urllc">URLLC</a></li>
+    <li class="observablehq-link"><a href="./hrcs">HRC-s</a></li>
     </ol>
   </details>
   <section>
@@ -75,15 +75,161 @@ import "../_observablehq/client.552b1a4e.js";
       </div>            
     </nav>    
     <div style="width:100%;">
-      <span class="sectiontitle">  Section : Massive IoT </span>
+      <span class="sectiontitle">  Section : Evaluation of mMTC-s technical performance </span>
     </div>
     
     
 </header>
 <main id="observablehq-main" class="observablehq">
+<!-- @ include: ./src/header.md -->
+<!-- <style>
+    :root {
+     --theme-foreground-focus: green;
+  }
+</style> -->
+<h1 id="connection-density" tabindex="-1"><a class="observablehq-header-anchor" href="#connection-density">Connection density</a></h1>
+<p>For connection density evaluations, we follow the procedure mentioned in Report ITU-R  M.2412 for only full buffer scenario. We obtain the CDF of pre-processing SINR for UL transmissions from SLS with both FRF =1 and FRF=3.</p>
+<p><strong>Evaluation Results</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th></th>
+<th>Values</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>For FRF = 1</td>
+<td>For FRF = 3</td>
+<td></td>
+</tr>
+<tr>
+<td>Service Profile</td>
+<td>Full buffer</td>
+<td>Full buffer</td>
+<td></td>
+</tr>
+<tr>
+<td>1 percentile pre-processing SINR</td>
+<td>-5.0023 dB</td>
+<td>5.5930 dB</td>
+<td></td>
+</tr>
+<tr>
+<td>System Bandwidth (W)</td>
+<td>0.18 MHz</td>
+<td>0.18 MHz</td>
+<td></td>
+</tr>
+<tr>
+<td>99th Percentile Delay</td>
+<td>0.265 s</td>
+<td>0.035 s</td>
+<td></td>
+</tr>
+<tr>
+<td>Inter-packet arrival time</td>
+<td>1 message/2 hours/device</td>
+<td>1 message/2 hours/device</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>1 message/day/device</td>
+<td>1 message/day/device</td>
+<td></td>
+</tr>
+<tr>
+<td>Connection Density</td>
+<td>541 Devices/km²</td>
+<td>1994 Devices/km²</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>6498 Devices/km²</td>
+<td>23,928 Devices/km²</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observation-1:</strong>
+The connection density requirement according to Report ITU-R  M.2514 is 500 Devices/km2 and 99th percentile delay requirement is less than 10s. We see that both the requirements are met for the case of mMTC NB-IoT over NTN for both FRF 1 and 3 with different inter-packet arrival times.</p>
+<p><strong>Results for eMTC over NTN</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameters</th>
+<th></th>
+<th>Values</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td>For FRF = 1</td>
+<td>For FRF = 3</td>
+<td></td>
+</tr>
+<tr>
+<td>Service Profile</td>
+<td>Full buffer</td>
+<td>Full buffer</td>
+<td></td>
+</tr>
+<tr>
+<td>1 percentile pre-processing SINR</td>
+<td>-5.1809 dB</td>
+<td>3.6187 dB</td>
+<td></td>
+</tr>
+<tr>
+<td>System Bandwidth (W)</td>
+<td>1.08 MHz, 180 KHz</td>
+<td>1.08 MHz, 180 KHz</td>
+<td></td>
+</tr>
+<tr>
+<td>99th Percentile Delay</td>
+<td>0.0341 s</td>
+<td>0.0042 s</td>
+<td></td>
+</tr>
+<tr>
+<td>Inter-packet arrival time</td>
+<td>1 message/2 hours/device</td>
+<td>1 message/2 hours/device</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>1 message/day/device</td>
+<td>1 message/day/device</td>
+<td></td>
+</tr>
+<tr>
+<td>Connection Density</td>
+<td>2629 Devices/km², 438 Devices/km²</td>
+<td>9306 Devices/km², 1551 Devices/km²</td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>31554 Devices/km², 5259 Devices/km²</td>
+<td>111,672 Devices/km², 18,612 Devices/km²</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Observation-2:</strong>
+(eMTC over NTN): The connection density requirement of 500 Devices/km2 and 99th percentile delay requirement of less than 10s is met for FRF=3 for all cases i.e., different system bandwidths and different inter-packed arrival time. For FRF = 1, the delay and connection density requirements are met for all configurations except for configuration with system bandwidth = 180 KHz and inter-packet arrival time of 1 message/2 hours/ device.</p>
 </main>
 <footer id="observablehq-footer">
-<nav><a rel="prev" href="./embb"><span>eMBB</span></a><a rel="next" href="./urllc"><span>URLLC</span></a></nav>
+<nav><a rel="prev" href="./embb"><span>eMBB</span></a><a rel="next" href="./hrcs"><span>HRC-s</span></a></nav>
 <div>
 <div class="ui divider"></div>
 
@@ -121,7 +267,7 @@ import "../_observablehq/client.552b1a4e.js";
   <div class="ui horizontal inverted small divided link list">   
   <span class="item" href="#">Copyright (c) 2024</span>
     <a class="item" href="#">Contact Us</a>
-    <a class="item">Build on October 22, 2024 (0.11) </a>
+    <a class="item">Build on October 25, 2024 (0.11) </a>
   </div>
 </div>
 </div>
