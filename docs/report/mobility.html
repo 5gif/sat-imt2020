@@ -2,15 +2,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="generator" content="Observable Framework v1.11.0">
-<title>5GIF - IEG</title>
+<title>Mobility | 5GIF - IEG</title>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="preload" as="style" href="../_import/css/mystyle.e2ef3fc2.css">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&amp;display=swap" crossorigin>
 <link rel="stylesheet" type="text/css" href="../_import/css/mystyle.e2ef3fc2.css">
-<link rel="modulepreload" href="../_observablehq/client.552b1a4e.js">
-<link rel="modulepreload" href="../_observablehq/runtime.5b25203c.js">
-<link rel="modulepreload" href="../_observablehq/stdlib.8648e8b4.js">
+<link rel="modulepreload" href="../_observablehq/client.c6668818.js">
+<link rel="modulepreload" href="../_observablehq/runtime.1e787fd6.js">
+<link rel="modulepreload" href="../_observablehq/stdlib.d90efb19.js">
 
   <link rel="stylesheet" href="../_file/css/mystyle.db1143c2.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -18,7 +18,7 @@
 
 <script type="module">
 
-import "../_observablehq/client.552b1a4e.js";
+import "../_observablehq/client.c6668818.js";
 
 </script>
 <input id="observablehq-sidebar-toggle" type="checkbox" title="Toggle sidebar">
@@ -75,12 +75,89 @@ import "../_observablehq/client.552b1a4e.js";
       </div>            
     </nav>    
     <div style="width:100%;">
-      <span class="sectiontitle">   </span>
+      <span class="sectiontitle">  Section : Mobility </span>
     </div>
     
     
 </header>
 <main id="observablehq-main" class="observablehq">
+<!-- @ include: ./src/header.md -->
+<!-- <style>
+    :root {
+     --theme-foreground-focus: green;
+  }
+</style> -->
+<h1 id="mobility" tabindex="-1"><a class="observablehq-header-anchor" href="#mobility">Mobility</a></h1>
+<style>
+  table{
+    background:var(--theme-background-alt);
+    border:2px solid var(--theme-background-alt);
+    width:100%;
+  }  
+  td:last-child{
+    padding-right:5px
+  }
+  td:first-child{
+    padding-left:5px
+  }
+
+   
+</style>
+<p>As defined in in Report ITU-R M.2514, mobility is the maximum device speed at which a defined QoS can be achieved (in km/h). The QoS is defined as normalized traffic channel link data rate.</p>
+<p>Both configurations with frequency reuse factor equal to 1 (FRF1) and frequency reuse factor equal to 3 (FRF3) are considered for mobility evaluation of the Rural-eMBB-s test environment.</p>
+<p>The evaluation results of mobility for NR satellite access for both evaluation configuration with FRF1 and FRF3 are provided in the following table. It is observed that NR satellite access fulfils the mobility requirement under 250 km/h.</p>
+<table>
+<thead>
+<tr>
+<th>Mobility</th>
+<th></th>
+<th>Min Req.</th>
+<th>Results for FRF=1</th>
+<th>Results for FRF=3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Test environment</td>
+<td>Rural eMBB-s​</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>UE Speed (km/h)</td>
+<td>250 km/h</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Normalized traffic channel link data rate (bit/s/Hz)</td>
+<td></td>
+<td>0.005</td>
+<td>0.0215</td>
+<td>0.0884</td>
+</tr>
+<tr>
+<td>Residual packet error ratio</td>
+<td></td>
+<td>&lt;1%</td>
+<td>0.54%</td>
+<td>0.14%</td>
+</tr>
+<tr>
+<td>Number of retransmissions</td>
+<td></td>
+<td>To be reported</td>
+<td>5</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>In the below figure, the <strong>CDF of SINR for uplink</strong> is shown for the evaluation of mobility of a UE moving at 250 kmph.</p>
+<p><img src="../_file/report/mobility-image-1.e539daeb.png" alt="CDF of UL"></p>
+<p>The following figure illustrates the <strong>DL and UL mobility ratemap for FRF=1 and FRF=3</strong></p>
+<p><img src="../_file/report/mobility-image-2.e3f6e813.png" alt="Mobility ratemap for DL and UL"></p>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./latency"><span>Latency</span></a><a rel="next" href="./embb"><span>eMBB</span></a></nav>
@@ -121,7 +198,7 @@ import "../_observablehq/client.552b1a4e.js";
   <div class="ui horizontal inverted small divided link list">   
   <span class="item" href="#">Copyright (c) 2024</span>
     <a class="item" href="#">Contact Us</a>
-    <a class="item">Build on October 25, 2024 (0.11) </a>
+    <a class="item">Build on November 9, 2024 (0.11) </a>
   </div>
 </div>
 </div>
