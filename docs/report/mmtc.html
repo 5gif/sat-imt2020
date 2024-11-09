@@ -94,6 +94,7 @@ import "../_observablehq/client.c6668818.js";
 <thead>
 <tr>
 <th>Parameters</th>
+<th>Min. Requirement</th>
 <th></th>
 <th>Values</th>
 <th></th>
@@ -102,67 +103,78 @@ import "../_observablehq/client.c6668818.js";
 <tbody>
 <tr>
 <td></td>
+<td></td>
 <td>For FRF = 1</td>
 <td>For FRF = 3</td>
 <td></td>
 </tr>
 <tr>
 <td>Service Profile</td>
+<td></td>
 <td>Full buffer</td>
 <td>Full buffer</td>
 <td></td>
 </tr>
 <tr>
 <td>1 percentile pre-processing SINR</td>
+<td></td>
 <td>-5.0023 dB</td>
 <td>5.5930 dB</td>
 <td></td>
 </tr>
 <tr>
 <td>System Bandwidth (W)</td>
+<td></td>
 <td>0.18 MHz</td>
 <td>0.18 MHz</td>
 <td></td>
 </tr>
 <tr>
 <td>99th Percentile Delay</td>
-<td>0.265 s</td>
-<td>0.035 s</td>
+<td></td>
+<td><code>0.265 s</code></td>
+<td><code>0.035 s</code></td>
 <td></td>
 </tr>
 <tr>
-<td>Inter-packet arrival time</td>
+<td>Inter-packet arrival time (Option-1)</td>
+<td></td>
 <td>1 message/2 hours/device</td>
 <td>1 message/2 hours/device</td>
 <td></td>
 </tr>
 <tr>
+<td>Inter-packet arrival time (Option-2)</td>
 <td></td>
 <td>1 message/day/device</td>
 <td>1 message/day/device</td>
 <td></td>
 </tr>
 <tr>
-<td>Connection Density</td>
-<td>541 Devices/km²</td>
-<td>1994 Devices/km²</td>
+<td>Connection Density (Devices/km²)</td>
+<td><code>500</code></td>
+<td>541  (Option-1)</td>
+<td>1994 (Option-1)</td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td>6498 Devices/km²</td>
-<td>23,928 Devices/km²</td>
+<td></td>
+<td>6498 (Option-2)</td>
+<td>23,928 (Option-2)</td>
 <td></td>
 </tr>
 </tbody>
 </table>
+<p><img src="../_file/report/mmtc-image-1.d4646243.png" alt="SINR for UL transmissions for eMTC UL NTN "></p>
 <p><strong>Observation-1:</strong>
-The connection density requirement according to Report ITU-R  M.2514 is 500 Devices/km2 and 99th percentile delay requirement is less than 10s. We see that both the requirements are met for the case of mMTC NB-IoT over NTN for both FRF 1 and 3 with different inter-packet arrival times.</p>
+The connection density requirement according to Report ITU-R  M.2514 is <code>500 Devices/km2</code> and <code>99th percentile delay</code> requirement is less than <code>10s</code>. We see that both the requirements are met for the case of mMTC NB-IoT over NTN for both FRF 1 and 3 with different inter-packet arrival times.</p>
 <p><strong>Results for eMTC over NTN</strong></p>
 <table>
 <thead>
 <tr>
 <th>Parameters</th>
+<th>Min. Requirement</th>
 <th></th>
 <th>Values</th>
 <th></th>
@@ -171,62 +183,71 @@ The connection density requirement according to Report ITU-R  M.2514 is 500 Devi
 <tbody>
 <tr>
 <td></td>
+<td></td>
 <td>For FRF = 1</td>
 <td>For FRF = 3</td>
 <td></td>
 </tr>
 <tr>
 <td>Service Profile</td>
+<td></td>
 <td>Full buffer</td>
 <td>Full buffer</td>
 <td></td>
 </tr>
 <tr>
 <td>1 percentile pre-processing SINR</td>
+<td></td>
 <td>-5.1809 dB</td>
 <td>3.6187 dB</td>
 <td></td>
 </tr>
 <tr>
 <td>System Bandwidth (W)</td>
-<td>1.08 MHz, 180 KHz</td>
-<td>1.08 MHz, 180 KHz</td>
+<td></td>
+<td>1.08 MHz, <strong>180 KHz</strong></td>
+<td>1.08 MHz, <strong>180 KHz</strong></td>
 <td></td>
 </tr>
 <tr>
 <td>99th Percentile Delay</td>
-<td>0.0341 s</td>
-<td>0.0042 s</td>
+<td></td>
+<td><code>0.0341 s</code></td>
+<td><code>0.0042 s</code></td>
 <td></td>
 </tr>
 <tr>
 <td>Inter-packet arrival time</td>
+<td></td>
 <td>1 message/2 hours/device</td>
 <td>1 message/2 hours/device</td>
 <td></td>
 </tr>
 <tr>
 <td></td>
+<td></td>
 <td>1 message/day/device</td>
 <td>1 message/day/device</td>
 <td></td>
 </tr>
 <tr>
-<td>Connection Density</td>
-<td>2629 Devices/km², 438 Devices/km²</td>
-<td>9306 Devices/km², 1551 Devices/km²</td>
+<td>Connection Density (Devices/km²)</td>
+<td><code>500</code></td>
+<td><code>2629</code>, <strong><code>438</code></strong></td>
+<td>9306, <strong>1551</strong></td>
 <td></td>
 </tr>
 <tr>
 <td></td>
-<td>31554 Devices/km², 5259 Devices/km²</td>
-<td>111,672 Devices/km², 18,612 Devices/km²</td>
+<td></td>
+<td>31554, <strong>5259</strong></td>
+<td>111,672 , <strong>18,612</strong></td>
 <td></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Observation-2:</strong>
-(eMTC over NTN): The connection density requirement of 500 Devices/km2 and 99th percentile delay requirement of less than 10s is met for FRF=3 for all cases i.e., different system bandwidths and different inter-packed arrival time. For FRF = 1, the delay and connection density requirements are met for all configurations except for configuration with system bandwidth = 180 KHz and inter-packet arrival time of 1 message/2 hours/ device.</p>
+(eMTC over NTN): The connection density requirement of <code>500 Devices/km2</code> and <code>99th percentile delay</code> requirement of <code>less than 10s</code> is met for <code>FRF=3</code> for all cases i.e., different system bandwidths and different inter-packed arrival time. For <code>FRF = 1</code>, the delay and connection density requirements are met for all configurations except for configuration with system bandwidth = <strong>180 KHz</strong> and inter-packet arrival time of 1 message/2 hours/ device.</p>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./embb"><span>eMBB</span></a><a rel="next" href="./hrcs"><span>HRC-s</span></a></nav>
