@@ -56,6 +56,10 @@ import "../_observablehq/client.c6668818.js";
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
 <nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#simulation-parameters">Simulation Parameters</a></li>
+</ol>
 </nav>
 </aside>
 <div id="observablehq-center">
@@ -88,12 +92,211 @@ import "../_observablehq/client.c6668818.js";
   }
 </style> -->
 <h1 id="reliability" tabindex="-1"><a class="observablehq-header-anchor" href="#reliability">Reliability</a></h1>
-<p>The results for UL and DL reliability after LLS have been reported in Table 2.2.4.1-1. According to Report  ITU-R  M.2514, the reliability requirement is 1-10-3 or 99.9%. We observe from Table 2.2.4.1-1 that we can meet the reliability requirements for both UL and DL NR-NTN.</p>
+<p>Reliability relates to the capability of transmitting a given amount of traffic within a predetermined
+time duration with high success probability.
+Reliability is the success probability of transmitting a layer 2/3 packet within a required maximum
+time, which is the time it takes to deliver a small data packet from the radio protocol layer 2/3 SDU
+ingress point to the radio protocol layer 2/3 SDU egress point of the radio interface at a certain channel
+quality.
+The satellite component of IMT-2020 shall be able to support reliability as high as <code>1-10e-3</code>.
+The connection time duration required to meet the reliability target should be provided by the proponent
+of the submitted RIT/SRIT.
+The following assumptions were used for simulation of HRC-s to evaluate the reliability.</p>
+<ul>
+<li>DL and UL overhead:
+<ul>
+<li>DL overhead is assumed to be <code>0.14</code></li>
+<li>UL overhead is assumed to be <code>0.08</code></li>
+</ul>
+</li>
+<li>For the evaluation metrics that require usage of beam area, a beam area of <code>1415 km2</code> is assumed.</li>
+<li>All the beams are considered for computing the area of connection density.</li>
+<li>For SLS to LLS metric of connection density, “pre-processing SINR” is  used</li>
+<li>Elevation angle of 90° is used for determining mean and standard deviation values of K-factor and delay spread for NTN TDL-C Rural channel model.</li>
+</ul>
+<p>Below are the parameters for system-level simulation-</p>
+<h1 id="simulation-parameters" tabindex="-1"><a class="observablehq-header-anchor" href="#simulation-parameters">Simulation Parameters</a></h1>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Satellite altitude</strong></td>
+<td>550 km</td>
+</tr>
+<tr>
+<td><strong>Satellite antenna pattern</strong></td>
+<td>Section 6.4.1 in [1]</td>
+</tr>
+<tr>
+<td><strong>Satellite antenna polarization</strong></td>
+<td>Circular</td>
+</tr>
+<tr>
+<td><strong>Satellite antenna number</strong></td>
+<td>1 Tx / 1 Rx per beam</td>
+</tr>
+<tr>
+<td><strong>3 dB beam width</strong></td>
+<td>4.41 degrees</td>
+</tr>
+<tr>
+<td><strong>Satellite EIRP density</strong></td>
+<td>34 dBW/MHz</td>
+</tr>
+<tr>
+<td><strong>Satellite antenna gain</strong></td>
+<td>30 dBi</td>
+</tr>
+<tr>
+<td><strong>Satellite G/T</strong></td>
+<td>1.1 dB/K</td>
+</tr>
+<tr>
+<td><strong>Central beam center elevation</strong></td>
+<td>90 deg</td>
+</tr>
+<tr>
+<td><strong>UE antenna type</strong></td>
+<td>Handheld, (1,1,2) with omni-directional antenna element</td>
+</tr>
+<tr>
+<td><strong>UE antenna polarization</strong></td>
+<td>Linear: +/- 45deg X-pol</td>
+</tr>
+<tr>
+<td><strong>UE Rx Antenna gain</strong></td>
+<td>0 dBi</td>
+</tr>
+<tr>
+<td><strong>UE antenna temperature</strong></td>
+<td>290 K</td>
+</tr>
+<tr>
+<td><strong>UE noise figure</strong></td>
+<td>7 dB</td>
+</tr>
+<tr>
+<td><strong>FRF</strong></td>
+<td>1 or 3</td>
+</tr>
+<tr>
+<td><strong>Carrier frequency</strong></td>
+<td>2 GHz</td>
+</tr>
+<tr>
+<td><strong>SCS</strong></td>
+<td>15 kHz</td>
+</tr>
+<tr>
+<td><strong>Channel bandwidth</strong></td>
+<td>30 MHz for FRF1, 10 MHz for FRF3</td>
+</tr>
+<tr>
+<td><strong>Scenario</strong></td>
+<td>Rural-eMBB-s</td>
+</tr>
+<tr>
+<td><strong>UE deployment</strong></td>
+<td>100% outdoor and uniformly distributed over the area</td>
+</tr>
+<tr>
+<td><strong>LOS condition</strong></td>
+<td>100% LOS</td>
+</tr>
+<tr>
+<td><strong>Spot beam pattern and frequency reuse factor</strong></td>
+<td>Hexagonal pattern, 19 inner beams, Total beams: 61 beams for FRF=1, 127 beams for FRF=3.</td>
+</tr>
+<tr>
+<td><strong>UE density</strong></td>
+<td>10 UEs per beam</td>
+</tr>
+<tr>
+<td><strong>UE mobility</strong></td>
+<td>0 (Stationary)</td>
+</tr>
+<tr>
+<td><strong>Satellite mobility</strong></td>
+<td>0 (Doppler spread is assumed to be compensated)</td>
+</tr>
+<tr>
+<td><strong>Large scale channel model</strong></td>
+<td>Large scale model of Section 6.6 in 38.811</td>
+</tr>
+<tr>
+<td><strong>Small scale channel model</strong></td>
+<td>Frequency selective fading model of Section 6.7.2 in 38.811</td>
+</tr>
+<tr>
+<td><strong>Handover margin</strong></td>
+<td>0 dB (handover was not simulated)</td>
+</tr>
+<tr>
+<td><strong>UE attachment</strong></td>
+<td>RSRP</td>
+</tr>
+<tr>
+<td><strong>Traffic model</strong></td>
+<td>Full-buffer</td>
+</tr>
+<tr>
+<td><strong>Scheduling scheme</strong></td>
+<td>PF and SU-MIMO</td>
+</tr>
+<tr>
+<td><strong>Receiver type</strong></td>
+<td>MMSE-IRC</td>
+</tr>
+<tr>
+<td><strong>Channel estimation</strong></td>
+<td>Realistic</td>
+</tr>
+<tr>
+<td><strong>Frequency offset</strong></td>
+<td>0 ppm</td>
+</tr>
+<tr>
+<td><strong>Frequency drift</strong></td>
+<td>0 ppm</td>
+</tr>
+<tr>
+<td><strong>DL CSI measurement</strong></td>
+<td>CQI only (1 layer / 1-port CSI-RS)</td>
+</tr>
+<tr>
+<td><strong>PRB bundling</strong></td>
+<td>Wideband</td>
+</tr>
+<tr>
+<td><strong>Codeword (CW)</strong></td>
+<td>SCW</td>
+</tr>
+<tr>
+<td><strong>Transmission scheme</strong></td>
+<td>One layer</td>
+</tr>
+<tr>
+<td><strong>Frame structure</strong></td>
+<td>FDD</td>
+</tr>
+<tr>
+<td><strong>Overhead</strong></td>
+<td>0.14 (same as for peak data rate calculation)</td>
+</tr>
+</tbody>
+</table>
+<p>The results for UL and DL reliability after LLS have been reported in the below table. According to Report  ITU-R  M.2514, the reliability requirement is <code>1-10e-3</code> or <code>99.9%</code>.</p>
 <p><strong>Performance results of reliability</strong></p>
 <table>
 <thead>
 <tr>
 <th>Parameters</th>
+<th>Min. Requirement</th>
 <th>Values</th>
 <th></th>
 </tr>
@@ -101,36 +304,43 @@ import "../_observablehq/client.c6668818.js";
 <tbody>
 <tr>
 <td></td>
+<td></td>
 <td>Uplink</td>
 <td>Downlink</td>
 </tr>
 <tr>
 <td>FRF</td>
+<td></td>
 <td>3</td>
 <td>3</td>
 </tr>
 <tr>
 <td>5 percentile SINR</td>
+<td></td>
 <td>-0.03 dB</td>
 <td>7.79 dB</td>
 </tr>
 <tr>
 <td>Scheduled Bandwidth</td>
+<td></td>
 <td>0.9 MHz (5 PRBs)</td>
 <td>8 PRBs, 30 PRBs</td>
 </tr>
 <tr>
 <td>Reliability</td>
+<td><code>99.9 %</code></td>
 <td>99.97 %</td>
 <td>99.98 %, 99.999%</td>
 </tr>
 <tr>
 <td>Connection Time Duration</td>
+<td></td>
 <td>36 ms</td>
 <td>1 ms</td>
 </tr>
 </tbody>
 </table>
+<p>We observe from the above table thatwe can meet the reliability requirements for both UL and DL NR-NTN.</p>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./mmtc"><span>mMTC</span></a></nav>
