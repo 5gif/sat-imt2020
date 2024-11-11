@@ -56,6 +56,14 @@ import "../_observablehq/client.c6668818.js";
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
 <nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#system-parameters-simulation-setup-and-interim-results-for-e-mbb-s">System Parameters, Simulation Setup and Interim Results for eMBB-s</a></li>
+<li class="observablehq-secondary-link"><a href="#user-experienced-data-rate">User Experienced Data Rate</a></li>
+<li class="observablehq-secondary-link"><a href="#5th-percentile-user-spectral-efficiency-evaluation">5th Percentile User Spectral Efficiency Evaluation</a></li>
+<li class="observablehq-secondary-link"><a href="#average-spectral-efficiency-evaluation">Average Spectral Efficiency Evaluation</a></li>
+<li class="observablehq-secondary-link"><a href="#area-traffic-capacity">Area Traffic Capacity</a></li>
+</ol>
 </nav>
 </aside>
 <div id="observablehq-center">
@@ -81,6 +89,236 @@ import "../_observablehq/client.c6668818.js";
     
 </header>
 <main id="observablehq-main" class="observablehq">
+<h1 id="e-mbb-s" tabindex="-1"><a class="observablehq-header-anchor" href="#e-mbb-s">eMBB-s</a></h1>
+<p>As per Report ITU-R M.2514, the <code>Enhanced Mobile Broadband (eMBB-s)</code> usage scenario, in the context of the satellite component
+of IMT-2020, should support high data rate applications in rural and remote areas, air and maritime
+environments, and, in some cases, suburban areas. Terminal devices on the move, capable of
+supporting communications at high velocity, should be supported to meet transportation needs and
+their associated users. Specifically, the following cases are identified:</p>
+<ul>
+<li>Coverage continuity: Moving pedestrians (consumer smartphones) should be able to maintain access to a large range of communication services and applications while moving out to remote areas for example, remote working, leisure, etc.</li>
+<li>Connecting populations in unserved or underserved areas</li>
+<li>Connectivity to transport: Buses, trains, vessels (leisure or cruise), or airplanes</li>
+<li>Public safety: To provide communication services (e.g., messaging, voice, video) to emergency responders (e.g., fire brigade, medical personnel).</li>
+</ul>
+<h2 id="system-parameters-simulation-setup-and-interim-results-for-e-mbb-s" tabindex="-1"><a class="observablehq-header-anchor" href="#system-parameters-simulation-setup-and-interim-results-for-e-mbb-s">System Parameters, Simulation Setup and Interim Results for eMBB-s</a></h2>
+<p>The following table illustrates the evaluation assumptions for the simulation.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Satellite orbit altitude</strong></td>
+<td>LEO 550 km</td>
+</tr>
+<tr>
+<td><strong>Satellite elevation angle</strong></td>
+<td>90 deg</td>
+</tr>
+<tr>
+<td><strong>Inter-cell distance @ nadir</strong></td>
+<td>44 km</td>
+</tr>
+<tr>
+<td><strong>Average cell area</strong></td>
+<td>1749 km²</td>
+</tr>
+<tr>
+<td><strong>Satellite EIRP density</strong></td>
+<td>34 dBW/MHz</td>
+</tr>
+<tr>
+<td><strong>Satellite antenna gain</strong></td>
+<td>30 dB</td>
+</tr>
+<tr>
+<td><strong>Satellite G/T</strong></td>
+<td>1.1 dB/K</td>
+</tr>
+<tr>
+<td><strong>Carrier frequency</strong></td>
+<td>2 GHz</td>
+</tr>
+<tr>
+<td><strong>Channel bandwidth</strong></td>
+<td>30 MHz</td>
+</tr>
+<tr>
+<td><strong>Subcarrier spacing (SCS)</strong></td>
+<td>15 kHz</td>
+</tr>
+<tr>
+<td><strong>DL number of PRBs</strong></td>
+<td>160 for FRF=1 / 52 for FRF=3</td>
+</tr>
+<tr>
+<td><strong>UL number of PRBs</strong></td>
+<td>16 for FRF=1 / 5 for FRF=3</td>
+</tr>
+<tr>
+<td><strong>UE antenna gain</strong></td>
+<td>0 dBi</td>
+</tr>
+<tr>
+<td><strong>UE noise figure</strong></td>
+<td>7 dB</td>
+</tr>
+<tr>
+<td><strong>UE Tx power</strong></td>
+<td>(unspecified)</td>
+</tr>
+<tr>
+<td><strong>UE antenna temperature</strong></td>
+<td>290 K</td>
+</tr>
+<tr>
+<td><strong>Losses due to scintillation/polarization/etc</strong></td>
+<td>0 dB</td>
+</tr>
+<tr>
+<td><strong>UE outdoor probability</strong></td>
+<td>1</td>
+</tr>
+<tr>
+<td><strong>UE density</strong></td>
+<td>10 per beam</td>
+</tr>
+</tbody>
+</table>
+<p><code>Typical eMBB-s deployment</code> is depicted in the figure below. The figure shows a beam formed from the satellite on the ground. The following figure shows the <code>main beam - HP Beam width, and the adjacent beam (interfering beam)</code>-</p>
+<p><img src="../_file/report/embb5-image.aa20098a.png" alt="HPBW and ABW"></p>
+<p>The below figure shows the <code>distribution of UE and the example of a FRF=1 and FRF=3 deployment case.</code></p>
+<p><img src="../_file/report/embb-image.a9428fb7.png" alt="UE distribution and the example of a FRF=1 and FRF=3 deployment case"></p>
+<p>The <code>wideband DL SINR CDF</code> is shown in the  following figure for both <code>FRF=1 and FRF=3</code> case-</p>
+<p><img src="../_file/report/embb1-image.3afc69ae.png" alt="DL SINR CDF for FRF=1 and FRF=3"></p>
+<p>This figure shows the corresponding CDF of DL spectral efficiency for both FRF=1 and FRF=3.</p>
+<p><img src="../_file/report/embb2-image.e7329a1e.png" alt="CDF of DL spectral efficiency for both FRF=1 and FRF=3."></p>
+<p>The UL SINR CDF and the spectral efficiency for both FRF=1 and FRF=3 scenario can be observed in the below figure.</p>
+<p><img src="../_file/report/embb3-image.410fbd3f.png" alt="UL SINR CDF"></p>
+<p><img src="../_file/report/embb4-image.02c219f4.png" alt="UL SINR CDF"></p>
+<h2 id="user-experienced-data-rate" tabindex="-1"><a class="observablehq-header-anchor" href="#user-experienced-data-rate">User Experienced Data Rate</a></h2>
+<p>User experienced data rate is the 5% point of the cumulative distribution function (CDF) of the user throughput. User throughput (during active time) is defined as the number of correctly received bits, i.e. the number of bits contained in the service data units (SDUs) delivered to Layer 3, over a certain period of time.</p>
+<p>Assuming one frequency band and one layer of transmission reception points (TRxP), the user experienced data rate should be derived from the 5th percentile user spectral efficiency through the below equation. Let W denote the channel bandwidth and SEuser denote the 5th percentile user spectral efficiency. Then the user experienced data rate, R<sub>user</sub> is given by:</p>
+<p><strong>R<sub>user</sub> = W × SE<sub>user</sub></strong></p>
+<p>The minimum requirements according to Report ITU-R M.2514, and results are provided in the table below-</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Min. Requirement (Mbit/s)</strong></th>
+<th><strong>Results for FRF=1 (Mbit/s)</strong></th>
+<th><strong>Results for FRF=3 (Mbit/s)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DL</td>
+<td>1</td>
+<td>0.822</td>
+<td><code>1.365</code></td>
+</tr>
+<tr>
+<td>UL</td>
+<td>0.1</td>
+<td>0.1173</td>
+<td><code>0.1968</code></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the assessment, <code>NR NTN passes the requirement for FRF=3 only.</code></p>
+<h2 id="5th-percentile-user-spectral-efficiency-evaluation" tabindex="-1"><a class="observablehq-header-anchor" href="#5th-percentile-user-spectral-efficiency-evaluation">5th Percentile User Spectral Efficiency Evaluation</a></h2>
+<p>The 5th percentile user spectral efficiency is the 5% point of the CDF of the normalized user throughput. The normalized user throughput is defined as the number of correctly received bits, i.e. the number of bits contained in the SDUs delivered to Layer 3, over a certain period of time, divided by the channel bandwidth, and is measured in bit/s/Hz.</p>
+<p>The following table lists the minimum requirements as per Report ITU-R M.2514 and the simulation results for 5th percentile user spectral efficiency.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Min. Req. (bit/s/Hz)</strong></th>
+<th><strong>Results for FRF=1 (bit/s/Hz)</strong></th>
+<th><strong>Results for FRF=3 (bit/s/Hz)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DL</strong></td>
+<td>0.03</td>
+<td>0.0274</td>
+<td><code>0.0455</code></td>
+</tr>
+<tr>
+<td><strong>UL</strong></td>
+<td>0.003</td>
+<td><code>0.00391</code></td>
+<td><code>0.00656</code></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the assessment, <code>NR NTN passes the requirement for FRF=3 only.</code></p>
+<h2 id="average-spectral-efficiency-evaluation" tabindex="-1"><a class="observablehq-header-anchor" href="#average-spectral-efficiency-evaluation">Average Spectral Efficiency Evaluation</a></h2>
+<p>Average spectral efficiency is the aggregate throughput of all users (the number of correctly received bits, i.e. the number of bits contained in the SDUs delivered to Layer 3, over a certain period of time) divided by the channel bandwidth of a specific band divided by the number of TRxPs and is measured in bit/s/Hz/TRxP.</p>
+<p>In the context of a satellite component radio interface, a TRxP (transmission and reception point) refers to a beam generated by the satellite.</p>
+<p>The channel bandwidth for this purpose is defined as the effective bandwidth times the frequency reuse factor.</p>
+<p>The minimum requirements as per Report ITU-R M.2514, and the simulation results for Average Spectral Efficiency are provided in the table below-</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Min. Requirement (bit/s/Hz)</strong></th>
+<th><strong>Results for FRF=1 (bit/s/Hz)</strong></th>
+<th><strong>Results for FRF=3 (bit/s/Hz)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DL</strong></td>
+<td>0.5</td>
+<td><code>0.629</code></td>
+<td><code>0.525</code></td>
+</tr>
+<tr>
+<td><strong>UL</strong></td>
+<td>0.1</td>
+<td>0.0727</td>
+<td><code>0.103</code></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the assessment, <code>NR NTN passes the requirement for FRF=3 only.</code></p>
+<h2 id="area-traffic-capacity" tabindex="-1"><a class="observablehq-header-anchor" href="#area-traffic-capacity">Area Traffic Capacity</a></h2>
+<p>Area traffic capacity is the total traffic throughput served per geographic area (in Mbit/s/km<sup>2</sup>). The throughput is the number of correctly received bits, i.e., the number of bits contained in the SDUs delivered to Layer 3, over a certain period of time.</p>
+<p>This can be derived assuming one frequency band and one TRxP layer, based on the achievable average spectral efficiency, network deployment (e.g., TRxP (site) density) and bandwidth.</p>
+<p>Let W denote the channel bandwidth and ρ the TRxP density (TRxP/m<sup>2</sup>). The area traffic capacity C<sub>area</sub> is related to average spectral efficiency SE<sub>avg</sub> as follows:</p>
+<p>C<sub>area</sub> = ρ × W × SE<sub>avg</sub></p>
+<p>The following table provides the minimum requirements according to Report ITU-R M.2514 along with the evaluation results-</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Min. Requirement (kbit/s/km<sup>2</sup>)</strong></th>
+<th><strong>Results for FRF=1 (kbit/s/km<sup>2</sup>)</strong></th>
+<th><strong>Results for FRF=3 (kbit/s/km<sup>2</sup>)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DL</strong></td>
+<td>8</td>
+<td><code>10.789</code></td>
+<td><code>9.005</code></td>
+</tr>
+<tr>
+<td><strong>UL</strong></td>
+<td>1.5</td>
+<td>1.247</td>
+<td><code>1.767</code></td>
+</tr>
+</tbody>
+</table>
+<p>Based on the assessment, <code>NR NTN passes the requirement for FRF=3 only.</code></p>
 </main>
 <footer id="observablehq-footer">
 <nav><a rel="prev" href="./mobility"><span>Mobility</span></a><a rel="next" href="./mmtc"><span>mMTC</span></a></nav>
@@ -121,7 +359,7 @@ import "../_observablehq/client.c6668818.js";
   <div class="ui horizontal inverted small divided link list">   
   <span class="item" href="#">Copyright (c) 2024</span>
     <a class="item" href="#">Contact Us</a>
-    <a class="item">Build on November 9, 2024 (0.11) </a>
+    <a class="item">Build on November 11, 2024 (0.11) </a>
   </div>
 </div>
 </div>

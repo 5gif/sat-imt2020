@@ -67,6 +67,10 @@ return {OH,TotalBitsperSlot};
 <script>{Object.assign(document.createElement("a"),{href:""}).password&&location.replace(location.href);const e=document.querySelector("#observablehq-sidebar"),t=document.querySelector("#observablehq-sidebar-toggle"),r=sessionStorage.getItem("observablehq-sidebar");r?t.checked=r==="true":t.indeterminate=!0;for(const o of document.querySelectorAll("#observablehq-sidebar summary")){const s=o.parentElement;switch(sessionStorage.getItem(`observablehq-sidebar:${o.textContent}`)){case"true":s.open=!0;break;case"false":s.classList.contains("observablehq-section-active")||(s.open=!1);break}}addEventListener("beforeunload",()=>sessionStorage.setItem("observablehq-sidebar-scrolly",`${e.scrollTop}`));const a=sessionStorage.getItem("observablehq-sidebar-scrolly");a!=null&&(e.style.cssText="overflow: hidden;",e.scrollTop=+a,e.style.cssText="");}</script>
 <aside id="observablehq-toc" data-selector="h1:not(:first-of-type)[id], h2:first-child[id], :not(h1) + h2[id]">
 <nav>
+<div>Contents</div>
+<ol>
+<li class="observablehq-secondary-link"><a href="#peak-data-rate">Peak Data Rate</a></li>
+</ol>
 </nav>
 </aside>
 <div id="observablehq-center">
@@ -92,9 +96,194 @@ return {OH,TotalBitsperSlot};
     
 </header>
 <main id="observablehq-main" class="observablehq">
+<h1 id="peak-spectral-efficiency" tabindex="-1"><a class="observablehq-header-anchor" href="#peak-spectral-efficiency">Peak Spectral Efficiency</a></h1>
+<p>As defined in Report ITU-R M.2514, peak spectral efficiency is the maximum data rate under ideal conditions normalized by the assigned bandwidth (in bit/s/Hz), where the maximum data rate is the received data bits assignable to a single mobile station, when up to all assignable radio resources for the corresponding link direction are utilized (i.e. excluding radio resources that are used for physical layer synchronization, reference signals or pilots and guard bands).</p>
+<p>When only one component carrier is in use, the generic formula for peak spectral efficiency is given by:</p>
+<p><strong>SE<sub>p</sub> = (V<sub>layers</sub> × Q<sub>m</sub> × f × R<sub>max</sub> × (N<sub>BW, μPRB</sub> × 12)) / (T<sup>μ</sup><sub>s</sub> × (1 - OH)) / BW</strong></p>
+<p>The peak spectral efficiency of NR satellite access is evaluated based on an <code>analytical method</code>. Unlike a terrestrial system, where conditions close to ideal be achieved, for an NTN system the minimum orbit height will result in a signal-to-noise ratio where the theoretical maximum is not achievable.</p>
+<p>Evaluation methodology-
+The proponent should report the peak spectral efficiencies achievable by the candidate RITs/SRITs and identify the assumed frequency band(s) of operation and the assigned DL and UL bandwidths in that(those) band(s). Proponents should demonstrate that the peak spectral efficiency requirement can be met for, at least, one declared carrier frequency.</p>
+<p>The <code>evaluation assumptions</code> for the ideal conditions can be found in the following table-</p>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>DL</strong></th>
+<th><strong>UL</strong></th>
+<th><strong>Remarks</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Max. coding rate R<sub>max</sub></td>
+<td>[666/1024 - 822/1024]</td>
+<td>[434/1024 - 553/1024]</td>
+<td></td>
+</tr>
+<tr>
+<td>Max. number of layers v<sub>Layers</sub></td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Highest modulation order Q<sub>m</sub></td>
+<td>6</td>
+<td>4</td>
+<td>DL: 64QAM, UL: 16QAM</td>
+</tr>
+<tr>
+<td>Scaling factor of modulation f<sub>f</sub></td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Numerology μ<sup>μ</sup></td>
+<td>0</td>
+<td></td>
+<td>SCS = 15 kHz</td>
+</tr>
+<tr>
+<td>Maximum RB allocation N<sub>BW, μPRB</sub></td>
+<td>160</td>
+<td>8</td>
+<td>For UL, 8 PRBs out of the full bandwidth is assigned per UE</td>
+</tr>
+<tr>
+<td>Overhead (OH)</td>
+<td>0.14</td>
+<td>0.08</td>
+<td>See 38.306, clause 4.1.2</td>
+</tr>
+<tr>
+<td>Elevation angle</td>
+<td>90°</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Orbit height [km]</td>
+<td>600</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Frequency [GHz]</td>
+<td>2.00</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>TX: EIRP [dBm]</td>
+<td>78.77</td>
+<td>23.00</td>
+<td></td>
+</tr>
+<tr>
+<td>RX: G/T [dB/T]</td>
+<td>-31.62</td>
+<td>1.10</td>
+<td></td>
+</tr>
+<tr>
+<td>Atmospheric loss [dB]</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Shadow fading margin [dB]</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scintillation loss [dB]</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Polarization loss [dB]</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Additional losses [dB]</td>
+<td>0</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>The <code>evaluation results for NR Satellite Access Peak spectral efficiency for DL and UL</code> can be found in the below table-</p>
+<table>
+<thead>
+<tr>
+<th><strong>Link</strong></th>
+<th><strong>Min. Requirement</strong></th>
+<th><strong>SCS [kHz]</strong></th>
+<th><strong>BW [MHz/RB]</strong></th>
+<th><strong>Peak Spectral Efficiency (bits/s/Hz)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DL</strong></td>
+<td>3</td>
+<td>15</td>
+<td>30 / 160</td>
+<td>3.71</td>
+</tr>
+<tr>
+<td><strong>UL</strong></td>
+<td>1.5</td>
+<td>15</td>
+<td>1.44 / 8</td>
+<td>1.85</td>
+</tr>
+</tbody>
+</table>
+<p>Based on the above analysis, <code>NR satellite access fulfils peak spectral efficiency requirement for both DL and UL.</code></p>
 <h1 id="peak-data-rate" tabindex="-1"><a class="observablehq-header-anchor" href="#peak-data-rate">Peak Data Rate</a></h1>
+<p>Peak data rate for NR NTN is evaluated based on the evaluation results of NR satellite access peak spectral efficiency provided in the below section. Using the analytical way as provided in Report ITU-R M.2514, DL peak data rate is calculated as:</p>
+<p><strong>R<sub>p</sub> = W<sub>a</sub> × SE<sub>p</sub></strong></p>
+<p>Evaluation Methodology-
+The proponent should report the peak data rate values achievable by the candidate RITs/SRITs and identify the assumed frequency band(s) of operation and the assigned DL and UL bandwidths in that(those) band(s). Proponents should demonstrate that the peak data rate requirement can be met for, at least, one declared carrier frequency.
+Suitable evaluation parameters should be used and reported by the proponent, using examples provided in § 8.2 [Report ITU-R M.2514] (associated to the Rural-eMBB-s test environment) as needed.</p>
+<p>The minimum requirement and evaluation results for peak data rate for DL and UL can be found in the below table.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Link</strong></th>
+<th><strong>Min. Requirement</strong></th>
+<th><strong>SCS [kHz]</strong></th>
+<th><strong>BW [MHz/RB]</strong></th>
+<th><strong>Peak data rate (Mbit/s)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DL</strong></td>
+<td>70</td>
+<td>15</td>
+<td>30 / 160</td>
+<td>111</td>
+</tr>
+<tr>
+<td><strong>UL</strong></td>
+<td>2</td>
+<td>15</td>
+<td>1.44 / 8</td>
+<td>2.67</td>
+</tr>
+</tbody>
+</table>
+<p>Based on the above analysis, NR satellite access fulfils peak data rate requirements for both DL and UL.</p>
 <div class="observablehq observablehq--block"><!--:f7c8edeb:--></div>
-<p><img src="../_file/report/image.74831311.png" alt="Frame Structure" class="ui image"></p>
+<p><img src="../_file/report/image.74831311.png" alt="Frame Structure"></p>
 <div class="observablehq observablehq--block"><!--:9969e89c:--></div>
 </main>
 <footer id="observablehq-footer">
@@ -136,7 +325,7 @@ return {OH,TotalBitsperSlot};
   <div class="ui horizontal inverted small divided link list">   
   <span class="item" href="#">Copyright (c) 2024</span>
     <a class="item" href="#">Contact Us</a>
-    <a class="item">Build on November 9, 2024 (0.11) </a>
+    <a class="item">Build on November 11, 2024 (0.11) </a>
   </div>
 </div>
 </div>
