@@ -81,7 +81,102 @@ import "./_observablehq/client.10d9af72.js";
 </header>
 <main id="observablehq-main" class="observablehq">
 <h1 id="technical-performance-requirements" tabindex="-1"><a class="observablehq-header-anchor" href="#technical-performance-requirements">Technical Performance Requirements</a></h1>
-<aside class="editornote"> Explain the different TPR from the M. </aside>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Explanation</th>
+<th>Satellite Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Peak data rate</td>
+<td>Maximum achievable channel data rate under ideal conditions</td>
+<td>70 Mbit/s    (DL)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>2 Mbit/s (UL)</td>
+</tr>
+<tr>
+<td>User experienced data rate</td>
+<td>Data rate maintained for 95% of the time</td>
+<td>1 Mbit/s (DL)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>100 kbit/s  (UL)</td>
+</tr>
+<tr>
+<td>Peak spectral efficiency</td>
+<td>Number of bits of data per Hz in a band</td>
+<td>3 bit/s/Hz   (DL)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>1.5 bit/s/Hz  (UL)</td>
+</tr>
+<tr>
+<td>Average spectral efficiency</td>
+<td>Average channel spectral efficiency</td>
+<td>0.5 bit/s/Hz   (DL)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>0.1 bit/s/Hz   (UL)</td>
+</tr>
+<tr>
+<td>5th percentile user spectral efficiency</td>
+<td>5% point of the CDF of the number of correctly received bits, divided by the channel bandwidth</td>
+<td>0.03 bit/s/Hz (DL)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>0.003 bit/s/Hz    (UL)</td>
+</tr>
+<tr>
+<td>User plane latency</td>
+<td>The time required for a packet to traverse the network from a source to a destination</td>
+<td>10 ms</td>
+</tr>
+<tr>
+<td>Control plane latency</td>
+<td>Transition time from idle state to active state</td>
+<td>40 ms</td>
+</tr>
+<tr>
+<td>Mobility</td>
+<td>Maximum moving speed allowed to maintain service transmission and QoS requirements</td>
+<td>250 km/h</td>
+</tr>
+<tr>
+<td>Connection density</td>
+<td>Total amount of connected MTD devices per unit area</td>
+<td>500/km²</td>
+</tr>
+<tr>
+<td>Area traffic capacity</td>
+<td>Overall traffic in a coverage area (Downlink / Uplink)</td>
+<td>8 kbit/s/km² (DL)</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>1.5 kbit/s/km² (UL)</td>
+</tr>
+<tr>
+<td>Reliability</td>
+<td>Capability of transmitting traffic with high success probability</td>
+<td>1-10⁻³</td>
+</tr>
+</tbody>
+</table>
 <h1 id="" tabindex="-1"><a class="observablehq-header-anchor" href="#"></a></h1>
 </main>
 <footer id="observablehq-footer">
@@ -123,7 +218,7 @@ import "./_observablehq/client.10d9af72.js";
   <div class="ui horizontal inverted small divided link list">   
   <span class="item" href="#">Copyright (c) 2024</span>
     <a class="item" href="#">Contact Us</a>
-    <a class="item">Build on November 14, 2024 (0.11) </a>
+    <a class="item">Build on November 15, 2024 (0.11) </a>
   </div>
 </div>
 </div>
